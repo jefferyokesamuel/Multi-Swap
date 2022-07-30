@@ -7,10 +7,10 @@ module.exports = async function (deployer, _network, addresses) {
   const factory = await Factory.deployed();
 
   let token1Address, token2Address
-  if (network === 'mainnet') {
-    token1Address = ''
-    token2Address = ''
-  } else {
+//   if (network === 'mainnet') {
+//     token1Address = ''
+//     token2Address = ''
+//   } else {
     await deployer.deploy(Token1);
     await deployer.deploy(Token2);
 
@@ -19,7 +19,7 @@ module.exports = async function (deployer, _network, addresses) {
 
     token1Address = token1.address
     token2Address = token2.address
-  }
+  //}
   await factory.createPair(token1Address, token2Address)
 }
 
